@@ -35,6 +35,7 @@ type (
 		Link    string
 		Started int64
 		Created int64
+		Pull    string
 	}
 
 	Job struct {

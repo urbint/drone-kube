@@ -111,6 +111,11 @@ func main() {
 			Usage:  "build tag",
 			EnvVar: "DRONE_TAG",
 		},
+		cli.StringFlag{
+			Name:   "pull.number",
+			Usage:  "pull number",
+			EnvVar: "DRONE_PULL_REQUEST",
+		},
 	}
 
 	if err := app.Run(os.Args); err != nil {
@@ -142,6 +147,7 @@ func run(c *cli.Context) error {
 			Link:    c.String("build.link"),
 			Started: c.Int64("build.started"),
 			Created: c.Int64("build.created"),
+			Pull:    c.String("pull.number"),
 		},
 		Job: Job{
 			Started: c.Int64("job.started"),
